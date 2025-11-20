@@ -15,6 +15,56 @@ Laptop with Keil uVision software
 8. Copy the hex file to 8051 controller.
 9.Simulate the circuit in Proteus software.
 ## Program :
+#include <reg51.h>
+
+
+sbit mp = P1^0; // P1.0
+
+sbit mn = P1^1; // P1.1
+
+
+void main(void)
+
+{
+
+volatile unsigned int a; // volatile prevents some compilers from optimizing the delay away
+
+
+mp = 0;
+
+mn = 0;
+
+
+while (1)
+
+{
+
+mp = 1;
+
+mn = 0;
+
+for (a = 1; a < 40000; a++) {
+
+; // empty delay loop
+
+}
+
+
+mp = 0;
+
+mn = 1;
+
+for (a = 1; a < 40000; a++) {
+
+; // empty delay loop
+
+}
+
+}
+
+}
 ## Output :
+<img width="878" height="677" alt="image" src="https://github.com/user-attachments/assets/e3c6d5ec-7df7-4047-8245-6d8935f1c8f1" />
+
 ## Result:
 The DC Motor direction control using 8051 microcontroller has been successfully implemented and simulated using Keil and Proteus.
